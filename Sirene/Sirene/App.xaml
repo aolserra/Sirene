@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Sirene.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MainMenuButtonGS" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="WidthRequest" Value="156" />
+                <Setter Property="HeightRequest" Value="96" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="BackgroundColor" Value="#FFD336" />
+            </Style>
+            <Style x:Key="NotificationButtonGS" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="WidthRequest" Value="156" />
+                <Setter Property="HeightRequest" Value="96" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="BackgroundColor" Value="#FFD336" />
+            </Style>
+            <Style x:Key="ResponseButtonGS" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="WidthRequest" Value="156" />
+                <Setter Property="HeightRequest" Value="96" />
+                <Setter Property="CornerRadius" Value="15" />
+            </Style>
+            <Style x:Key="GridHeaderGS" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="#F8A11E" />
+                <Setter Property="Padding" Value="10,0" />
+
+            </Style>
+            <Style x:Key="ButtonHeaderGS" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#F8A11E" />
+            </Style>
+            <Style x:Key="DefaultButtonGS" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#F8A11E" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="15" />
+            </Style>
+            <Style x:Key="PagesHeaderGS" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="#D63F15" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+            </Style>
+            <Style x:Key="PagesHeaderLabelGS" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="#F8A11E" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="Padding" Value="15" />
+            </Style>
+            <Style x:Key="EntryLabelGS" TargetType="Label">
+                <Setter Property="TextColor" Value="#D63F15" />
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="MonitorLabelGS" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="23"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="EntryGS" TargetType="Entry">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="None"/>
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+                <Setter Property="IsSpellCheckEnabled" Value="False"/>
+                <Setter Property="IsTextPredictionEnabled" Value="False"/>
+                <Setter Property="ReturnType" Value="Next"/>
+            </Style>
+            <!--<Style x:Key="ComboBoxGS" TargetType="combobox:SfComboBox">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="DropDownItemHeight" Value="50"/>
+                <Setter Property="MultiSelectMode" Value="None"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="TextSize" Value="16"/>
+                <Setter Property="ShowClearButton" Value="True"/>
+                <Setter Property="DropDownCornerRadius" Value="15"/>
+                <Setter Property="IsEditableMode" Value="true"/>
+                <Setter Property="IsSelectedItemsVisibleInDropDown" Value="False"/>
+            </Style>-->
+            <Style x:Key="ListViewGS" TargetType="Label">
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontAttributes" Value="None"/>
+            </Style>
+            <Style x:Key="ResponseTextGS" TargetType="Label">
+                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="ReadOnlyEntry" TargetType="Entry" BasedOn="{StaticResource EntryGS}">
+                <Setter Property="IsEnabled" Value="False" />
+            </Style>
+            <Style x:Key="DefaultKeyboard" TargetType="Entry" BasedOn="{StaticResource EntryGS}">
+                <Setter Property="Keyboard" Value="Default"/>
+            </Style>
+            <Style x:Key="DefaultKeyboardDone" TargetType="Entry" BasedOn="{StaticResource EntryGS}">
+                <Setter Property="Keyboard" Value="Default"/>
+                <Setter Property="ReturnType" Value="Done"/>
+            </Style>
+            <Style x:Key="NumericKeyboard" TargetType="Entry" BasedOn="{StaticResource EntryGS}">
+                <Setter Property="Keyboard" Value="Numeric"/>
+            </Style>
+            <Style x:Key="NumericKeyboardDone" TargetType="Entry" BasedOn="{StaticResource EntryGS}">
+                <Setter Property="Keyboard" Value="Numeric"/>
+                <Setter Property="ReturnType" Value="Done"/>
+            </Style>
+            <Style x:Key="EmailKeyboard" TargetType="Entry" BasedOn="{StaticResource EntryGS}">
+                <Setter Property="Keyboard" Value="Email"/>
+            </Style>
+            <Style x:Key="PickerGS" TargetType="Picker">
+                <Setter Property="TitleColor" Value="Black"/>
+                <Setter Property="TextColor" Value="#D63F15" />
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style x:Key="BackForwardButtonGS" TargetType="ImageButton">
+                <Setter Property="Source" Value="backforward.png" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="WidthRequest" Value="27" />
+                <Setter Property="HeightRequest" Value="33.98" />
+            </Style>
+            <Style x:Key="FloppyDiskButtonGS" TargetType="ImageButton">
+                <Setter Property="Source" Value="floppydisk.png" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="WidthRequest" Value="27" />
+                <Setter Property="HeightRequest" Value="28.92" />
+            </Style>
+
+            <Style x:Key="DeleteButtonGS" TargetType="ImageButton">
+                <Setter Property="Source" Value="delete.png" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="WidthRequest" Value="27" />
+                <Setter Property="HeightRequest" Value="34.71" />
+            </Style>
+
+            <Style x:Key="SearchButtonGS" TargetType="ImageButton">
+                <Setter Property="Source" Value="search.png" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="WidthRequest" Value="27" />
+                <Setter Property="HeightRequest" Value="27" />
+            </Style>
+
+            <Style x:Key="TextButtonGS" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="BackgroundColor" Value="#D63F15"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

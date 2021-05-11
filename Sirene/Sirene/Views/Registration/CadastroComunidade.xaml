@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sirene.Views.Registration.CadastroComunidade">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="SIRENE - Cadastro de Condomínios" Style="{StaticResource PagesHeaderLabelGS}" />
+
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Style="{StaticResource BackForwardButtonGS}" Clicked="BackForward"/>
+                    <ImageButton Style="{StaticResource FloppyDiskButtonGS}" Clicked="OnSaveActivated"/>
+                    <ImageButton Style="{StaticResource DeleteButtonGS}" Clicked="OnDeleteActivated"/>
+                    <ImageButton Style="{StaticResource SearchButtonGS}" Clicked="Search"/>
+                </StackLayout>
+
+                <StackLayout Padding="10">
+                    <Label Text="Código da Comunidade:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding Path=CodigoComunidade}" x:Name="codigoComunidade" IsEnabled="False" Style="{StaticResource DefaultKeyboard}" FontAttributes="Bold" />
+
+                    <Label Text="Nome:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding Path=NomeComunidade}" x:Name="nomeComunidade" Style="{StaticResource DefaultKeyboard}">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
+
+
+                    <Label Text="Responsável:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding Path=ResponsavelComunidade}" x:Name="responsavelComunidade" Style="{StaticResource DefaultKeyboard}">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
+
+                    <Label Text="Bairro:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding Path=BairroComunidade}" x:Name="bairroComunidade" Style="{StaticResource DefaultKeyboard}" />
+
+                    <Label Text="Cidade:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding Path=CidadeComunidade}" x:Name="cidadeComunidade" Style="{StaticResource DefaultKeyboard}" />
+
+                    <Label Text="UF:" Style="{StaticResource EntryLabelGS}" />
+
+                    <Picker x:Name="uFComunidade"
+                            Title="Selecione um Estado"
+                            Style="{StaticResource PickerGS}"
+                            SelectedItem="{Binding UFComunidade}"
+                            >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>AC</x:String>
+                                <x:String>AL</x:String>
+                                <x:String>AM</x:String>
+                                <x:String>AP</x:String>
+                                <x:String>BA</x:String>
+                                <x:String>CE</x:String>
+                                <x:String>DF</x:String>
+                                <x:String>ES</x:String>
+                                <x:String>GO</x:String>
+                                <x:String>MA</x:String>
+                                <x:String>MG</x:String>
+                                <x:String>MS</x:String>
+                                <x:String>MT</x:String>
+                                <x:String>PA</x:String>
+                                <x:String>PB</x:String>
+                                <x:String>PE</x:String>
+                                <x:String>PI</x:String>
+                                <x:String>PR</x:String>
+                                <x:String>RJ</x:String>
+                                <x:String>RN</x:String>
+                                <x:String>RO</x:String>
+                                <x:String>RR</x:String>
+                                <x:String>RS</x:String>
+                                <x:String>SC</x:String>
+                                <x:String>SE</x:String>
+                                <x:String>SP</x:String>
+                                <x:String>TO</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

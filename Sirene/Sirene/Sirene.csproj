@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Correios-Api" Version="1.1.1" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.0-preview.1.20124.5" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.1" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Registration\CadastroComunidade.xaml.cs">
+      <DependentUpon>CadastroComunidade.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Registration\ListPageCadastroComunidade.xaml.cs">
+      <DependentUpon>ListPageCadastroComunidade.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Registration\CadastroTipoMensagem.xaml.cs">
+      <DependentUpon>CadastroTipoMensagem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Registration\ListPageCadastroTipoMensagem.xaml.cs">
+      <DependentUpon>ListPageCadastroTipoMensagem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Registration\ListPageCadastroUsuario.xaml.cs">
+      <DependentUpon>ListPageCadastroUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Registration\CadastroUsuario.xaml.cs">
+      <DependentUpon>CadastroUsuario.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sirene.Views.Notification.EmergencyNotificationReceiver">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="SIRENE - EMERGÊNCIA" Style="{StaticResource PagesHeaderLabelGS}" />
+                <StackLayout Padding="15" x:Name="stackLayout">
+                    <Label x:Name="receiveText" Text="{Binding Path=Text}" Style="{StaticResource ResponseTextGS}"/>
+                </StackLayout>
+                <StackLayout Padding="15, 40" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button x:Name="OnIamSafe"
+                        Text="Estou em Segurança"
+                        BackgroundColor="LimeGreen"
+                        Style="{StaticResource ResponseButtonGS}"
+                    />
+                    <Button x:Name="OnNeedHelp"
+                        Text="Preciso de Ajuda"
+                        BackgroundColor="Yellow"
+                        Style="{StaticResource ResponseButtonGS}"
+                    />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

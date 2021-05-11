@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sirene.Views.Registration.CadastroUsuario">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="SIRENE - Cadastro de Usuários" Style="{StaticResource PagesHeaderLabelGS}" />
+
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Style="{StaticResource BackForwardButtonGS}" Clicked="OnBackForwardActivated"/>
+                    <ImageButton Style="{StaticResource FloppyDiskButtonGS}" Clicked="OnSaveActivated"/>
+                    <ImageButton Style="{StaticResource DeleteButtonGS}" Clicked="OnDeleteActivated"/>
+                    <ImageButton Style="{StaticResource SearchButtonGS}" Clicked="Search"/>
+                </StackLayout>
+
+                <StackLayout Padding="10">
+                    <Label Text="Código do Usuário:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding CodigoUsuario}" x:Name="codigoUsuario" IsEnabled="False" Style="{StaticResource DefaultKeyboard}" FontAttributes="Bold" />
+
+                    <Label Text="Nome:" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding NomeUsuario}" x:Name="nomeUsuario" Style="{StaticResource DefaultKeyboard}">
+                        <Entry.Keyboard>
+                            <Keyboard x:FactoryMethod="Create">
+                                <x:Arguments>
+                                    <KeyboardFlags>CapitalizeWord</KeyboardFlags>
+                                </x:Arguments>
+                            </Keyboard>
+                        </Entry.Keyboard>
+                    </Entry>
+
+                    <Label Text="Comunidade:" Style="{StaticResource EntryLabelGS}" />
+
+                    <Picker x:Name="comunidadeUsuario"
+                            SelectedIndexChanged="PickerComunidade_SelectedIndexChanged"
+                            Title="Selecione uma Comunidade"
+                            TitleColor="Black"
+                            Style="{StaticResource PickerGS}"
+                     />
+
+                    <Label Text="Tem Pessoa com Dificuldade de Locomoção?" Style="{StaticResource EntryLabelGS}" />
+                    <StackLayout Orientation="Horizontal">
+                        <RadioButton x:Name="temPessoasComProbMobilidadeHabilitado" Value="Sim" TextColor="Black" IsChecked="False" />
+                        <Label Text="Sim" Style="{StaticResource DefaultKeyboard}" FontAttributes="Bold" />
+                        <RadioButton x:Name="temPessoasComProbMobilidadeDesabilitado" Value="Não" TextColor="Black" IsChecked="True" />
+                        <Label Text="Não" Style="{StaticResource DefaultKeyboard}" FontAttributes="Bold" />
+                    </StackLayout>
+
+                    <Label Text="Quantidade:" IsVisible="True" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding QtdPessoasComProbMobilidade}" x:Name="qtdPessoasComProbMobilidade" IsVisible="True" Style="{StaticResource DefaultKeyboard}"/>
+
+                    <Label Text="Perfil:" Style="{StaticResource EntryLabelGS}" />
+                    <Picker SelectedItem="{Binding PerfilUsuario}" x:Name="perfilUsuario"
+                            Title="Selecione um Perfil"
+                            TitleColor="Black"
+                            Style="{StaticResource PickerGS}"
+                            >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Adm Geral</x:String>
+                                <x:String>Adm Comunidade</x:String>
+                                <x:String>Operador</x:String>
+                                <x:String>Condômino</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sirene.Views.Registration.CadastroTipoMensagem">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="SAFER - Cadastro de Tipo de Mensagem" Style="{StaticResource PagesHeaderLabelGS}" />
+
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Style="{StaticResource BackForwardButtonGS}" Clicked="BackForward"/>
+                    <ImageButton Style="{StaticResource FloppyDiskButtonGS}" Clicked="OnSaveActivated"/>
+                    <ImageButton Style="{StaticResource DeleteButtonGS}" Clicked="OnDeleteActivated"/>
+                    <ImageButton Style="{StaticResource SearchButtonGS}" Clicked="Search"/>
+                </StackLayout>
+
+                <StackLayout Padding="10">
+                    <Label Text="Tipo de Mensagem" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding MsgTipo}" x:Name="msgType" Style="{StaticResource DefaultKeyboard}" />
+                    <Label Text="Texto da Mensagem" Style="{StaticResource EntryLabelGS}" />
+                    <Entry Text="{Binding MsgTexto}" x:Name="msgText" Style="{StaticResource DefaultKeyboard}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

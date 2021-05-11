@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sirene.Views.AccessDenied">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Você não atem acesso ao App ou existem inconsistências em seu cadastro. Por favor tente novamente. Caso o problema persista, contate o Administrador do sistema."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

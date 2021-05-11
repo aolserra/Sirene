@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             xmlns:viewModel="clr-namespace:Sirene.Views.Notification"
+             xmlns:converter="clr-namespace:Sirene.Converters"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sirene.Views.Notification.EmergencyNotificationMonitor">
+    <ContentPage.BindingContext>
+        <viewModel:MonitoringListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:NameConverter x:Key="nameConverter" />
+            <converter:IsOnlineConverter x:Key="isOnlineConverter" />
+            <converter:ResponseConverter x:Key="responseConverter" />
+            <converter:HasPeopleWithMobProblemConverter x:Key="hasPeopleWithMobProblemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <ListView ItemsSource="{Binding Monitoring}" HasUnevenRows="True">
+                <ListView.Header>
+                    <StackLayout>
+                        <Label Text="SIRENE - Monitoramento da Notificação" Style="{StaticResource PagesHeaderLabelGS}" />
+
+                        <StackLayout Padding="40, 20">
+                            <Button ImageSource="firealarm.png"
+                            x:Name="OnFinalizeEmergencyActivated"
+                            Text="Finalizar Notificação de Emergência"
+                            Style="{StaticResource NotificationButtonGS}"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Width, Factor=0.07, Constant=1}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Y, Factor=1.8, Constant=80}"
+                            />
+                        </StackLayout>
+
+                        <StackLayout Margin="10,10,0,0" x:Name="stackLayout">
+                            <Label Text="Situação das pessoas notificadas:" Style="{StaticResource MonitorLabelGS}"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Start"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="20" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Source="{Binding IsOnline, Converter={StaticResource isOnlineConverter}}" />
+                                <Label Grid.Row="0" Grid.Column="1" TextColor="Black" Text="{Binding Nome, Converter={StaticResource nameConverter}}" VerticalTextAlignment="Center" />
+                                <Image Grid.Row="0" Grid.Column="2" Source="{Binding Resposta, Converter={StaticResource responseConverter}}" />
+                                <Image Grid.Row="0" Grid.Column="3" Source="{Binding TemPessoasComProbMobilidade, Converter={StaticResource hasPeopleWithMobProblemConverter}}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Sirene"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sirene.Views.MainMenu">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="menuHeader" Text="SIRENE - Menu Principal" IsVisible ="False" Style="{StaticResource PagesHeaderLabelGS}" />
+                <StackLayout Padding="20">
+                    <Button x:Name="emergencia"
+                            IsVisible ="False"
+                            ImageSource="firealarm.png"
+                            Clicked="NotificacaoEmergencia"
+                            Text="Notificação de Emergência"
+                            Style="{StaticResource MainMenuButtonGS}"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Width, Factor=0.07, Constant=1}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Y, Factor=1.8, Constant=80}"
+                    />
+                    <Button x:Name="comunidade"
+                            IsVisible ="False"
+                            ImageSource="building.png"
+                            Clicked="CadastroComunidade"
+                            Text="Cadastro de Comunidade"
+                            Style="{StaticResource MainMenuButtonGS}"
+                            BackgroundColor="#F8A11E"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Width, Factor=0.07, Constant=1}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Y, Factor=0.07, Constant=190}" 
+                    />
+                    <Button x:Name="mensagem"
+                            IsVisible ="False"
+                            ImageSource="msg.png"
+                            Clicked="CadastroMensagens"
+                            Text="Cadastro de Mensagens"
+                            Style="{StaticResource MainMenuButtonGS}"
+                            BackgroundColor="#F8A11E"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Width, Factor=0.07, Constant=175}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Y, Factor=0.07, Constant=300}" 
+                    />
+                    <Button x:Name="usuario"
+                            IsVisible ="False"
+                            ImageSource="profileuser.png"
+                            Clicked="CadastroUsuario"
+                            Text="Cadastro de Usuários"
+                            Style="{StaticResource MainMenuButtonGS}"
+                            BackgroundColor="#F8A11E"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Width, Factor=0.07, Constant=1}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Header, Property=Y, Factor=0.07, Constant=410}" 
+                    />
+                </StackLayout>
+
+                <Label x:Name="regAtivHeader" Text="SIRENE - Ativação de Cadastro" IsVisible ="False" Style="{StaticResource PagesHeaderLabelGS}" />
+                <StackLayout Padding="10">
+                    <Label x:Name="regRotuloAtiv" Text="Para ativar seu cadastro, digite o código informado pelo seu condomínio mais o número de sua unidade e clique em ATIVAR." IsVisible ="false" Style="{StaticResource PagesHeaderLabelGS}" />
+                    <Entry x:Name="codigoUsu" IsVisible ="False" Style="{StaticResource DefaultKeyboard}" HeightRequest="100"/>
+                    <Button x:Name="regBtAtivacao" Text="ATIVAR" IsVisible="False" Style="{StaticResource TextButtonGS}" Clicked="OnActivated"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
